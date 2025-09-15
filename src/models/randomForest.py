@@ -4,6 +4,7 @@ import torch
 import numpy as np
 import time
 import wandb
+import sys
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
@@ -12,7 +13,10 @@ from torch.utils.data import DataLoader
 from CNN import CNNmodel
 from Training import test_model, train_model
 from Training import visualize, write_report, ImbalancedDatasetUnderSampler
-from Data_maker_loader import with_DSM
+
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_root)
+from preprocessing.Data_maker_loader import with_DSM
 
 server = "/rds/user/jgcb3/hpc-work/forecasting/junin/"
 
